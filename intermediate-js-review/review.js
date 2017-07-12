@@ -43,7 +43,11 @@ var ans5 = 'belongs to the overlord';
 
 var theAnswer = "Unknown";
 
-// CODE HERE...
+function promiseResolver(param){
+  param.then(function(response){
+    theAnswer = response;
+  })
+}
 
 
 ///Context///
@@ -52,19 +56,19 @@ var theAnswer = "Unknown";
 /////to the contextObj, and with the two parameters passed in - return
 /////the result.
 function contextIt(myFn, contextObj, param1, param2) {
-
+  return myFn.call(contextObj, param1, param2);
 }
 
 //8. Do the same as you did in question 6, except with the
 /////paramArray passed in instead
 function contextIt2(myFn, contextObj, paramArray) {
-
+  return myFn.apply(contextObj, paramArray);
 }
 
 //9. Inside contextIt3, return a new function that permanently
 /////links myFn to the contextObj
 function contextIt3(myFn, contextObj) {
-
+  return myFn.bind(contextObj);
 }
 
 
@@ -75,13 +79,21 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 /////parameters called hornColor, magicType, mana, and
 /////canFly; inside the function, assign each to an identically
 /////named property
-
+  function Unicorn(hornColor, magicType, mana, canFly){
+    this.hornColor = hornColor;
+    this.magicType = magicType;
+    this.mana = mana;
+    this.canFly = canFly;
+  }
 
 //question updated 03/30/17
 //11. Add a prototype method to Unicorn called castBubbleWrapSpell
 /////which adds 100 to the global variable bubbles and takes away
 /////15 from mana.
-
+  Unicorn.prototype.castBubbleWrapSpell = function(){
+    bubbles += 100;
+    this.mana -= 15;
+  }
 
 
 /////Closures/////
@@ -89,8 +101,11 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 //12. Write a function called greetingMaker which takes in a name
 /////and returns a function that takes in a greeting and returns
 /////the name and the greeting concatenated together (in that order)
-
-
+  function greetingMaker(name){
+    return function(greeting){
+      return name + greeting;
+    }
+  }
 //13. Write a function called countdownMaker which takes in an
 /////event name (string) and how many days until it happens.
 /////countdownMaker will return a function that,
@@ -98,10 +113,21 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 /////object that looks like this:
 /////{event: <eventname>, daysLeft: <days left>}
 
-
+function countdownMaker(event, days){
+  return function(){
+    days -= 1;
+    return{
+      event: event,
+      daysLeft: days
+    }
+  }
+}
 
 /////Type Checking/////
 
 //14. Write a function called notMyType which takes in a parameter
 /////and returns the type of data of the parameter (number, string,
 /////boolean, etc)
+  function notMyType(param){
+    return typeof(param)
+  }
