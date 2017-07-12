@@ -90,7 +90,10 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 //11. Add a prototype method to Unicorn called castBubbleWrapSpell
 /////which adds 100 to the global variable bubbles and takes away
 /////15 from mana.
-
+  Unicorn.prototype.castBubbleWrapSpell = function(){
+    bubbles += 100;
+    this.mana -= 15;
+  }
 
 
 /////Closures/////
