@@ -43,7 +43,11 @@ var ans5 = 'belongs to the overlord';
 
 var theAnswer = "Unknown";
 
-// CODE HERE...
+function promiseResolver(param){
+  param.then(function(response){
+    theAnswer = response;
+  })
+}
 
 
 ///Context///
