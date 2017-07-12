@@ -56,19 +56,19 @@ function promiseResolver(param){
 /////to the contextObj, and with the two parameters passed in - return
 /////the result.
 function contextIt(myFn, contextObj, param1, param2) {
-
+  return myFn.call(contextObj, param1, param2);
 }
 
 //8. Do the same as you did in question 6, except with the
 /////paramArray passed in instead
 function contextIt2(myFn, contextObj, paramArray) {
-
+  return myFn.apply(contextObj, paramArray);
 }
 
 //9. Inside contextIt3, return a new function that permanently
 /////links myFn to the contextObj
 function contextIt3(myFn, contextObj) {
-
+  return myFn.bind(contextObj);
 }
 
 
@@ -79,7 +79,12 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 /////parameters called hornColor, magicType, mana, and
 /////canFly; inside the function, assign each to an identically
 /////named property
-
+  function Unicorn(hornColor, magicType, mana, canFly){
+    this.hornColor = hornColor;
+    this.magicType = magicType;
+    this.mana = mana;
+    this.canFly = canFly;
+  }
 
 //question updated 03/30/17
 //11. Add a prototype method to Unicorn called castBubbleWrapSpell
