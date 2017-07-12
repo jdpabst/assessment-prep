@@ -21,15 +21,15 @@ function theOverlord() {
 
 //Assign your answers to the variables below.
 //1. The value of rules if accessed from thePowerlessFigurehead
-var ans1 = '';
+var ans1 = 'love me plz';
 //2. The value of rules if accessed from theJudge
-var ans2 = '';
+var ans2 = 'cry all day';
 //3. The value of job if accessed from theOverlord
-var ans3 = '';
+var ans3 = undefined;
 //4. The value of job if accessed from thePowerlessFigurehead
-var ans4 = '';
+var ans4 = undefined;
 //5. The value of money if accessed from theTragicHumanitarian
-var ans5 = '';
+var ans5 = 'belongs to the overlord';
 
 ///Promises///
 
