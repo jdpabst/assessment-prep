@@ -101,8 +101,11 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 //12. Write a function called greetingMaker which takes in a name
 /////and returns a function that takes in a greeting and returns
 /////the name and the greeting concatenated together (in that order)
-
-
+  function greetingMaker(name){
+    return function(greeting){
+      return name + greeting;
+    }
+  }
 //13. Write a function called countdownMaker which takes in an
 /////event name (string) and how many days until it happens.
 /////countdownMaker will return a function that,
@@ -110,10 +113,21 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 /////object that looks like this:
 /////{event: <eventname>, daysLeft: <days left>}
 
-
+function countdownMaker(event, days){
+  return function(){
+    days -= 1;
+    return{
+      event: event,
+      daysLeft: days
+    }
+  }
+}
 
 /////Type Checking/////
 
 //14. Write a function called notMyType which takes in a parameter
 /////and returns the type of data of the parameter (number, string,
 /////boolean, etc)
+  function notMyType(param){
+    return typeof(param)
+  }
